@@ -4,17 +4,35 @@
  * _puts - prints a string
  * new line, to stdout.
  * @string: input string
- * Return: count of string.
+ * Return: void
  */
-int _puts(char *string)
+int _puts(char *str)
 {
-	int contador = 0;
+	char *a = str;
 
-	while (*string)
+	while (*str)
+		_putchar(*str++);
+	return (str - a); 
+}
+
+/**
+ * _putchar - writes the character c to stdout
+ * @c: The character to print
+ *
+ * Return: On success 1.
+ * On error, -1 is returned, and errno is set appropriately.
+ */
+int _putchar(int c)
+{
+	static int i;
+	static char buf[OUTPUT_BUF_SIZE];
+
+	if (c == BUF_FLUSH || i >= OUTPUT_BUF_SIZE)
 	{
-		_putchar(*string);
-		string++;
-		contador++;
+		write(1, buf, i);
+		i = 0;
 	}
-	return (contador);
+	if (c != BUF_FLUSH)
+		buf[i++] = c;
+	return (1);
 }
