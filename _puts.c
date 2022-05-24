@@ -1,9 +1,9 @@
 #include "main.h"
 
 /**
- * _puts - prints a string
- * new line, to stdout.
- * @string: input string
+ * _puts - prints a string with newline
+ * @str: the string to print
+ *
  * Return: void
  */
 int _puts(char *str)
@@ -12,7 +12,7 @@ int _puts(char *str)
 
 	while (*str)
 		_putchar(*str++);
-	return (str - a); 
+	return (str - a);
 }
 
 /**
